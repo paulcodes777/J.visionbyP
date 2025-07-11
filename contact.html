@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J.VISION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+   * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Anton', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: gray;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transition: 0.3s ease;
+  border-radius: 1px;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive: Mobile Nav */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .nav-links li a {
+    padding: 10px 0;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.contact-section {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  font-family: 'Anton', sans-serif;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button {
+  padding: 12px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.email-link {
+  margin-top: 30px;
+  font-size: 0.95rem;
+}
+
+.email-link a {
+  color: black;
+  text-decoration: underline;
+}
+
+
+
+/* css for the footer */
+
+.site-footer {
+  border-top: 1px solid #444;
+  background-color: white;
+  color: black;
+  padding: 40px 20px;
+  font-family: 'Anton', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo a {
+  font-size: 1.8rem;
+  color: black;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: black;
+}
+
+.footer-contact p {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.footer-contact a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-social a {
+  margin: 0 10px;
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  filter: invert(0%);
+  transition: filter 0.3s ease;
+}
+
+.footer-social img:hover {
+  filter: invert(50%);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin: 20px 0;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+}
+
+/* css for javacript */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 2.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">J.VISION</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+    
+  <section class="contact-section reveal">
+    <h1>Contact</h1>
+    <p>Want to preorder, ask a question, or collab with Jeremy? Reach out below.</p>
+
+    <form action="mailto:jeremy@example.com" method="POST" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="email" name="Email" placeholder="Your Email" required>
+      <textarea name="Message" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+
+  </section>
+
+
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html">J.VISION</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:jeremy@example.com">jeremy@example.com</a></p>
+    </div>
+    <div class="footer-contact">
+     <p>Instagram: <a href="https://www.instagram.com/probably.pikki?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">@probably.pikki</a></p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    toggleBtn.classList.toggle("active");
+  });
+
+  // Reveal on scroll
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((element) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = element.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        element.classList.add('active');
+      } else {
+        element.classList.remove('active'); // optional
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+
+  
+</body>
+</html>
