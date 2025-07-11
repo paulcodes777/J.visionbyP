@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J.VISION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <!-- css for the bacground gif and the css to make it responsive -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: url('images/jeremy3.gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Anton', sans-serif; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    .cover {
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      max-width: 90%;
+    }
+
+    .brand-text {
+      font-size: 4rem;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease-in forwards;
+      opacity: 0;
+    }
+
+    #enter-btn {
+      padding: 14px 36px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      border: 2px solid white;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+      animation: fadeIn 2.5s ease-in forwards;
+      opacity: 0;
+    }
+
+    #enter-btn:hover {
+      background-color: white;
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .brand-text {
+        font-size: 2.5rem;
+      }
+
+      #enter-btn {
+        font-size: 1rem;
+        padding: 10px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-text {
+        font-size: 1.8rem;
+      }
+
+      #enter-btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cover">
+    <div class="brand-text">clothing reimagined</div>
+    <button id="enter-btn">ENTER</button>
+  </div>
+
+  <!-- script for the button to enter the index.html -->
+  <script>
+    document.getElementById("enter-btn").addEventListener("click", function () {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+
+</html>
+
