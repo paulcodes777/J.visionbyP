@@ -25,3 +25,5 @@ This site features a clean design with smooth animations and mobile-friendly nav
 
 ---
 
+### Cover Image
+![Image alt](https://github.com/paulcodes777/Paulciaga/blob/86cdab6a4be3c1c9905da1a7a68a2c882a1c7edd/Screenshot%202025-05-14%20121645.png)
