@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J.VISION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Anton', sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: gray;
+    }
+
+    /* Hamburger Icon Base Styles (Hidden by default) */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 30px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle .bar {
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      transition: 0.3s ease;
+      border-radius: 1px;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+        opacity: 1;
+      }
+
+      .nav-links li a {
+        padding: 10px 0;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+/* css for card */
+    .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.product-card {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 5px;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* buy button css */
+.buy-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #333;
+}
+
+/* logo */
+.logo {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: black;
+}
+
+/* css for javascript animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 2.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* css for the footer */
+.site-footer {
+  border-top: 1px solid #444;
+  background-color: white;
+  color: black;
+  padding: 40px 20px;
+  font-family: 'Anton', sans-serif;
+}
+
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo a {
+  font-size: 1.8rem;
+  color: black;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: black;
+}
+
+.footer-contact p {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.footer-contact a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-social a {
+  margin: 0 10px;
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+  transition: filter 0.3s ease;
+}
+
+.footer-social img:hover {
+  filter: invert(70%);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin: 20px 0;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+<a href="index.html" class="logo">J.VISION</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <!-- Add your content here -->
+    </section>
+  </main>
+
+
+<section class="product-grid">
+  <div class="product-card reveal">
+    <img src="images/hoodie1.JPEG" alt="Product 1">
+    <h3>Longing Hoodie</h3>
+    <p>$70.00</p>
+    <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie2.JPEG" alt="Product 2">
+    <h3>Globally Amado Hoodie</h3>
+    <p>$75.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie3.JPEG" alt="Product 2">
+    <h3>Interrealtions Hoodie</h3>
+    <p>$75.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie4.JPEG" alt="Product 2">
+    <h3>Skully Hoodie</h3>
+    <p>$70.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie8.JPEG" alt="Product 2">
+    <h3>Love Ties Hoodie</h3>
+    <p>$70.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie9.JPEG" alt="Product 2">
+    <h3>W.I.Y Hoodie</h3>
+    <p>$70.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie6.JPEG" alt="Product 2">
+    <h3>Deadline T-Shirt</h3>
+    <p>$70.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+  <div class="product-card reveal">
+    <img src="images/hoodie7.JPEG" alt="Product 2">
+    <h3>Gone T-Shirt</h3>
+    <p>$70.00</p>
+     <a href="coming-soon.html" class="buy-button">Buy Now</a>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="index.html">J.VISION</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:jeremy@example.com">jeremy@example.com</a></p>
+    </div>
+    <div class="footer-contact">
+     <p>Instagram: <a href="https://www.instagram.com/probably.pikki?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">@probably.pikki</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      toggleBtn.classList.toggle("active");
+    });
+  </script>
+
+
+<!-- javascript for the animations -->
+<script>
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active'); // Optional: remove when scrolled out
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+
+</html>
