@@ -33,3 +33,6 @@ This site features a clean design with smooth animations and mobile-friendly nav
 
 ## Contact Page
 ![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/fdb581df10572e58a2724529ff3ccc6b44c415eb/jcontact.png)
+
+## Coming Soon Page
+![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/91e16a891a98de1872a97a7491dda5660d4643ac/jsoon.png)
