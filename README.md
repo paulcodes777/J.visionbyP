@@ -36,3 +36,6 @@ This site features a clean design with smooth animations and mobile-friendly nav
 
 ## Coming Soon Page
 ![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/91e16a891a98de1872a97a7491dda5660d4643ac/jsoon.png)
+
+## Footer 
+![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/0f6d73f21087782fa39a6ef5c6bd783095d02ddf/jfooter.png)
