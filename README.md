@@ -28,3 +28,5 @@ This site features a clean design with smooth animations and mobile-friendly nav
 ### Cover Image
 ![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/5b1b41ff5c98036c9d5b9fcd3b01fafcb0a961ad/jeremycover.png)
 
+## Home Page
+![Image alt](https://github.com/paulcodes777/J.visionbyP/blob/bf60564e4809e166a5af7b30dd95e9a9a218a6c2/jhome.png)
